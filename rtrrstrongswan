@@ -1,0 +1,14 @@
+config setup
+
+conn vpn
+      auto=start
+      type-tunnel
+      authby=secret
+      left=5.5.5.100
+      right=4.4.4.100
+      leftsubnet=0.0.0.0/0
+      rightsubnet=0.0.0.0/0
+      leftprotoport=gre
+      rightprotoport=gre
+      ike=aes128-sha256-modo3072
+      esp=aes128-sha256
