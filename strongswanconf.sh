@@ -15,4 +15,4 @@ fi
 
 echo -e "4.4.4.100  5.5.5.100 : PSK \"P@ssw0rd\""
 
-echo systemctl enable --now ipsec
+systemctl enable --now ipsec
