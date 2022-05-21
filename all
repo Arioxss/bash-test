@@ -1,0 +1,4 @@
+#!bin/bash
+wget https://raw.githubusercontent.com/Arioxss/bash-test/footest/grel.up
+wget https://raw.githubusercontent.com/Arioxss/bash-test/footest/rtrlstrongswan
+wget 

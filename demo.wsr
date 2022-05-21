@@ -1,0 +1,10 @@
+@       in       NS       demo.wsr.
+@       in       A        3.3.3.1
+isp       in       A        3.3.3.1
+www       in       A        4.4.4.100
+www       in       A        5.5.5.100
+internet       in       CNMAE        isp
+
+$ORIGIN int.demo.wsr
+@       IN       NS      int.demo.wsr.
+@       IN       A       4.4.4.100

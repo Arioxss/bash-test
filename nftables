@@ -1,0 +1,37 @@
+flush ruleset
+
+table inet filter {
+    chain input
+      {
+        type filter hook input priority 0;
+        udp dport 53 accept;
+        tcp dport 80 accept;
+        tcp dport 443 accept;
+        ct state {established, related} accept;
+        ip protocol gre accept;
+        ip protocol icmp accept;
+        udp dport 500 accept;
+        ip saddr 192.168.100.0/24 accept;
+        ip saddr 172.16.100.0/24 accept;
+        ip version 4 drop;
+      }
+      chain forward {
+          type filter hook forward priority 0;
+      }
+      chain output{
+        type filter hook output priority 0;
+      }
+}
+
+table ip nat {
+  chain postrouting nat{
+    tyoe nat hook postrouting priority 0;
+    ip saddr 192.168.100.0/24 ofiname ens33 counter masquerade;
+  }
+  chain prerouting {
+    type nat hook prerouting priority filter; policy accept;
+    iifname "ens224" tcp dport 2222 dnat to 192.168.100.100:22;
+    iifname "ens224" tcp dport 2222 dnat to 192.168.100.200:53;
+
+  }
+}
